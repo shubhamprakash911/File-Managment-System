@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -32,6 +33,7 @@ const upload = multer({ storage });
 
 // API endpoints
 app.use(express.json());
+app.use(cors());
 
 app.get("/api/files", async (req, res) => {
   try {
